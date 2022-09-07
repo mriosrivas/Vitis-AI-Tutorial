@@ -140,7 +140,7 @@ def runDPU(id, start, dpu, img):
         for j in range(runSize):
             #out_q[write_index] = np.argmax((outputData[0][j]))
             out_q[write_index] = (outputData[0][j][0][0][0]*(2**output_fixpos-1)).astype('uint8')
-            #print(f'output = {out_q[write_index]}')
+            print(f'output = {out_q[write_index]}')
             #print(f'out = {outputData}')
             write_index += 1
         count = count + runSize
@@ -210,7 +210,7 @@ def app(image_dir, threads, model):
 
     print(divider)
 
-    with open('/cat-dog/time_info.txt', 'w') as f:
+    with open('time_info.txt', 'w') as f:
         f.write(f'FPS = {fps}\n')
 
 
